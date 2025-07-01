@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ristorante La Buona Forchetta</title>
+  <style>
+    /* Font moderno da Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f3f5;
+      margin: 0;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    header h1 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 2.8rem;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      margin-top: 8px;
+      font-weight: 300;
+      font-size: 1.2rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    nav {
+      background: white;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: #2575fc;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      padding: 8px 20px;
+      border-radius: 25px;
+      transition: background-color 0.3s, color 0.3s;
+      cursor: pointer;
+    }
+
+    nav a:hover, nav a.active {
+      background-color: #2575fc;
+      color: white;
+      box-shadow: 0 3px 10px rgba(37,117,252,0.4);
+    }
+
+    section {
+      max-width: 900px;
+      margin: 40px auto 100px auto;
+      padding: 0 25px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      display: none;
+    }
+
+    section.active {
+      display: block;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    h2 {
+      color: #2575fc;
+      font-weight: 600;
+      border-bottom: 3px solid #6a11cb;
+      padding-bottom: 6px;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      font-size: 1.15rem;
+      margin-bottom: 25px;
+      border-bottom: 1px solid #e0e4e8;
+      padding-bottom: 12px;
+    }
+
+    li strong {
+      color: #6a11cb;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    li small {
+      display: block;
+      margin-top: 5px;
+      color: #666;
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+      color: white;
+      text-align: center;
+      padding: 20px 15px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-weight: 500;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.15);
+      font-size: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      nav {
+        gap: 15px;
+      }
+      nav a {
+        padding: 6px 12px;
+        font-size: 1rem;
+      }
+      section {
+        margin: 20px 10px 120px 10px;
+        padding: 15px;
+      }
+      footer {
+        font-size: 0.9rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Ristorante La Buona Forchetta</h1>
+    <p>Cucina italiana tradizionale dal 1987</p>
+  </header>
+
+  <nav>
+    <a class="active" onclick="showSection('menu', this)">Menù</a>
+    <a onclick="showSection('home', this)">Home</a>
+    <a onclick="showSection('contatti', this)">Contatti</a>
+  </nav>
+
+  <section id="menu">
+  <h2>Il nostro menù</h2>
+
+  <h1>Pizze</h1>
+  <ul style="list-style-type: none; padding: 0;">
+    <li style="margin-bottom: 20px;">
+      <strong>Pizza romana - €7</strong><br>
+      <small>Ingredienti: farina, pomodoro, mozzarella, origano, olio extravergine d'oliva.</small>
+    </li>
+    <li style="margin-bottom: 20px;">
+      <strong>Pizza margherita - €6</strong><br>
+      <small>Ingredienti: pomodoro, mozzarella, basilico, olio extravergine d'oliva.</small>
+    </li>
+    <li style="margin-bottom: 20px;">
+      <strong>Pizza quattro formaggi - €9</strong><br>
+      <small>Ingredienti: mozzarella, gorgonzola, parmigiano, fontina.</small>
+    </li>
+  </ul>
+
+  <h1>Primi Piatti</h1>
+  <ul style="list-style-type: none; padding: 0;">
+    <li style="margin-bottom: 20px;">
+      <strong>Spaghetti alla carbonara - €9</strong><br>
+      <small>Ingredienti: spaghetti, uova, guanciale, pecorino romano, pepe nero.</small>
+    </li>
+    <li style="margin-bottom: 20px;">
+      <strong>Lasagne alla bolognese - €11</strong><br>
+      <small>Ingredienti: pasta all’uovo, ragù di carne, besciamella, parmigiano.</small>
+    </li>
+    <li style="margin-bottom: 20px;">
+      <strong>Minestrone di verdure - €6</strong><br>
+      <small>Ingredienti: carote, zucchine, fagioli, patate, pomodoro, cipolla, sedano.</small>
+    </li>
+  </ul>
+
+  <h1>Secondi Piatti</h1>
+  <ul style="list-style-type: none; padding: 0;">
+    <li style="margin-bottom: 20px;">
+      <strong>Bistecca alla griglia - €15</strong><br>
+      <small>Ingredienti: carne di manzo, sale grosso, pepe, rosmarino.</small>
+    </li>
+    <li style="margin-bottom: 20px;">
+      <strong>Gamberi alla griglia - €12</strong><br>
+      <small>Ingredienti: gamberi freschi, aglio, prezzemolo, limone, olio d'oliva.</small>
+    </li>
+    <li style="margin-bottom: 20px;">
+      <strong>Insalata Caprese - €8</strong><br>
+      <small>Ingredienti: pomodoro, mozzarella di bufala, basilico, olio extravergine d'oliva, sale.</small>
+    </li>
+  </ul>
+
+  <h1>Dolci</h1>
+  <ul style="list-style-type: none; padding: 0;">
+    <li style="margin-bottom: 20px;">
+      <strong>Tiramisù fatto in casa - €5</strong><br>
+      <small>Ingredienti: savoiardi, mascarpone, caffè, uova, zucchero, cacao amaro.</small>
+    </li>
+    <li style="margin-bottom: 20px;">
+      <strong>Cannoli siciliani - €6</strong><br>
+      <small>Ingredienti: cialde croccanti, ricotta dolce, zucchero, cioccolato.</small>
+    </li>
+  </ul>
+</section>
+
+  <section id="home">
+  <h2>Benvenuti al Ristorante La Buona Forchetta</h2>
+  
+  <p>Nel cuore di Palermo dal 1987, La Buona Forchetta è sinonimo di passione per la cucina italiana tradizionale. Offriamo un ambiente accogliente, piatti preparati con ingredienti freschi e un servizio cordiale che vi farà sentire come a casa.</p>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 25px; margin-top: 25px;">
+    <div style="flex: 1 1 300px; background: #f7f9fc; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+      <h3 style="color:#6a11cb;">La nostra storia</h3>
+      <p>Fondata da una famiglia di appassionati, il ristorante è cresciuto mantenendo sempre la qualità e l’autenticità dei sapori siciliani e italiani.</p>
+      <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=400&q=80" alt="Ristorante accogliente" style="width: 100%; border-radius: 10px; margin-top: 10px;">
+    </div>
+
+    <div style="flex: 1 1 300px; background: #f7f9fc; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+      <h3 style="color:#6a11cb;">La nostra cucina</h3>
+      <p>Utilizziamo solo ingredienti locali di stagione, selezionati ogni giorno dai nostri chef per creare piatti che esaltano i sapori tradizionali con un tocco moderno.</p>
+      <ul style="padding-left: 20px; color: #444;">
+        <li>Prodotti freschi e di qualità</li>
+        <li>Ricette autentiche italiane e siciliane</li>
+        <li>Opzioni per vegetariani e celiaci</li>
+        <li>Vini selezionati da cantine locali</li>
+      </ul>
+    </div>
+
+    <div style="flex: 1 1 300px; background: #f7f9fc; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+      <h3 style="color:#6a11cb;">Ambiente & Servizio</h3>
+      <p>Il nostro ristorante offre un’atmosfera calda e rilassante, ideale per cene romantiche, famiglie o gruppi. Il nostro personale è sempre disponibile e attento a ogni esigenza.</p>
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80" alt="Ambiente ristorante" style="width: 100%; border-radius: 10px; margin-top: 10px;">
+    </div>
+  </div>
+
+  <div style="margin-top: 30px; background: #e0e7f6; padding: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+    <h3 style="color:#2575fc; margin-bottom: 12px;">Cosa dicono di noi</h3>
+    <blockquote style="font-style: italic; color: #555; margin: 0 0 15px 0; border-left: 4px solid #6a11cb; padding-left: 12px;">
+      "Esperienza fantastica! Cucina deliziosa e personale gentilissimo. Consigliatissimo!" - <strong>Marco R.</strong>
+    </blockquote>
+    <blockquote style="font-style: italic; color: #555; margin: 0; border-left: 4px solid #6a11cb; padding-left: 12px;">
+      "Atmosfera calda e piatti genuini. Tornerò sicuramente." - <strong>Giulia S.</strong>
+    </blockquote>
+  </div>
+</section>
+
+  <section id="contatti">
+    <h2>Contatti</h2>
+    <p>📍 <strong>Indirizzo:</strong> Via Roma 10, Palermo</p>
+    <p>📞 <strong>Telefono:</strong> 091-1234567</p>
+    <p>✉️ <strong>Email:</strong> info@labuonaforchetta.it</p>
+    <p>🌐 <strong>Seguici su:</strong>
+      <a href="#" target="_blank" style="color:#6a11cb; text-decoration:none;">Facebook</a> |
+      <a href="#" target="_blank" style="color:#6a11cb; text-decoration:none;">Instagram</a>
+    </p>
+  </section>
+
+  <footer>
+    📍 Via Roma 10, Palermo | 📞 091-1234567
+  </footer>
+
+  <script>
+    function showSection(id, link) {
+      // Nascondi tutte le sezioni
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      // Mostra quella scelta
+      document.getElementById(id).classList.add('active');
+
+      // Aggiorna stile del menu attivo
+      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+      link.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
